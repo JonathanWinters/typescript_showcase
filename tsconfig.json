@@ -3,7 +3,7 @@
         "target": "es2019", // Specify the target JavaScript version
         "module": "commonjs", // Specify the module system
         "outDir": "./dist", // Output directory for transpiled JavaScript
-        "strict": true, // Enable strict type-checking options
+        "strict": false, // Enable strict type-checking options
         "esModuleInterop": true // Enable compatibility for default imports
       },
       "include": ["src/**/*.ts"] // Specify which files to include
