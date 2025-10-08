@@ -6,8 +6,12 @@ import { EVENT_NAME } from "./showcase/enums/example_4";
 import { MyEnum, Colors } from "./showcase/enums/example_5";
 
 //? EXAMPLE 1 ==========================================================
-function log(msg: String, e: EventName){}
-log('Test', EventName.INIT) //Does Work
+//#region Example 1
+console.log("=== Example 1 ===");
+function log(msg: String, e: EventName){
+    console.log(msg, e);
+}
+log('Test Example 1: ', EventName.INIT) //Does Work
 
 // Becomes an IIFE (Immediately Invoked Function Expression) in JS
 // https://developer.mozilla.org/en-US/docs/Glossary/IIFE
@@ -31,8 +35,10 @@ log('Test', EventName.INIT) //Does Work
         3: 'ERROR'
     };
 */
-
+//#endregion
 //? EXAMPLE 2 ==========================================================
+//#region Example 2
+console.log("=== Example 2 ===");
 // log('Test', EventName2.INIT) //!Does Not Work
 // log('Test', 'INIT') //!Does Not Work
 /*
@@ -42,22 +48,49 @@ log('Test', EventName.INIT) //Does Work
 
     The reason people love enums is because refactors are so easy
 */
+
+const typeOne = {
+    a: 'a',
+    b: 'b'
+}
+
+const typeTwo = {
+    a: 'a',
+    b: 'b'
+}
+
+function takesTypeOne(param: typeof typeOne) {
+    console.log(param);
+}
+
+takesTypeOne(typeOne) // Works
+takesTypeOne(typeTwo) // Does Work TOO
+//#endregion
 //? EXAMPLE 3 ==========================================================
+//#region Example 3
+console.log("=== Example 3 ===");
 function logAsConst(msg: String, e: EventName3){}
 logAsConst('Test', EventName3.INIT) //Does Work
 // logAsConst('Test', 'INIT') //Does Not Work
-
+//#endregion
 //? EXAMPLE 4 ==========================================================
+//#region Example 4
+console.log("=== Example 4 ===");
 function logType(msg: String, e: EventType){
     console.log(msg, e);
 }
-logType('Test Type', 'INIT') // Saves an import of a type
-logType('Test Type', EVENT_NAME.INIT) // Us importing
-
+logType('Test Type Example 4, string:', 'INIT') // Saves an import of a type
+logType('Test Type Example 4, enum:', EVENT_NAME.INIT) // Us importing
+//#endregion
 //? Example 5 ===========================================================
+//#region Example 5
+console.log("=== Example 5 ===");
 console.log(MyEnum[0]); // "A"
-// console.log(MyEnum[3]); // undefined (no corresponding member)
+console.log(MyEnum[3]); // undefined (no corresponding member)
 console.log(Object.keys(MyEnum)); // ["0", "1", "A", "B"]
 
 const colorValue = 5;
-// const myColor: Colors = colorValue as Colors; //!No compile-time error, but 'myColor' is not a valid enum member
+const myColor: Colors = colorValue as Colors; //!No compile-time error, but 'myColor' is not a valid enum member
+console.log(myColor);
+console.log(Colors[myColor]);
+//#endregion
